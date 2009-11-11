@@ -1,0 +1,21 @@
+sqlite2:
+  :adapter: sqlite
+  :database: ":memory:"
+
+sqlite3:
+  :adapter: sqlite3
+  :database: ":memory:"
+
+postgresql:
+  :adapter: postgresql
+  :username: postgres
+  :password: postgres
+  :database: account_scopper_test
+  :min_messages: ERROR
+
+mysql:
+  :adapter: mysql
+  :host: localhost
+  :username: root
+  :password: password
+  :database: account_scopper_test

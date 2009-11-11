@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "account_scopper"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Account Scopper: Automatically scope your ActiveRecord's model by account. Ideal for multi-account applications."
+    gem.description = "Account Scopper: Automatically scope your ActiveRecord's model by account. Ideal for multi-account applications."
     gem.email = "public@zencocoon.com"
     gem.homepage = "http://github.com/ZenCocoon/account_scopper"
     gem.authors = ["Sebastien Grosjean"]

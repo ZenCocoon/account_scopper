@@ -1,0 +1,6 @@
+localhost:
+  id: 1
+  name: Localhost
+demo:
+  id: 2
+  name: Demo

@@ -1,6 +1,59 @@
-= account_scopper
+= Account Scopper
 
-Description goes here.
+Account Scopper aims to make conversion from a single account to multi-accounts application as easy as possible.
+
+Simply set your current_account before each request and the scoping will be done on it's own.
+
+== Usage
+
+To convert your application, you will need to make few changes :
+
+1. Create an Account model and Accounts table
+2. Add account_id to your existing models (except Account of course)
+3. Make relationship between Account and other models
+4. Add the class variable "current_account" to the model Account
+5. Initialize Account.current_account before every request (eg: app/controllers/application.rb)
+
+eg: 
+
+# app/model/account.rb
+
+class Account < ActiveRecord::Base
+  cattr_accessor :current_account
+  
+  has_many :users
+end
+
+# app/model/user.rb
+
+class User < ActiveRecord::Base  
+  belongs_to :account
+end
+
+# app/controllers/application.rb
+
+class ApplicationController < ActionController::Base
+  before_filter :set_current_account
+  # ...
+
+  private
+    # Don't forget that @current_account should be properly setup to be an Account object
+    # for this purpose you can use the plugin AccountLocation from David Heinemeier Hansson
+    def set_current_account
+      Account.current_account = @current_account
+    end
+end
+
+== What it does
+
+The plugin overwrite few methods from ActiveRecord::Base
+
+To have a better understanding of what it does, the best way is still to look
+at the code itself and the tests.
+
+== Warning
+
+If using manually generated database requests like find_by_sql, ... you'll have to do your own scoping
 
 == Note on Patches/Pull Requests
  

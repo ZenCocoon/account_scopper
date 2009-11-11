@@ -1,0 +1,12 @@
+seb:
+  id: 1
+  account_id: 1
+  name: Seb
+marc:
+  id: 2
+  account_id: 1
+  name: Marc
+stephane:
+  id: 3
+  account_id: 2
+  name: Stephane
