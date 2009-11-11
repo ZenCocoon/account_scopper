@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "account_scopper.gemspec",
      "init.rb",
      "lib/account_scopper.rb",
      "spec/account_scopper_spec.rb",
