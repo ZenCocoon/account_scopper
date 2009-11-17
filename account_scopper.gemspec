@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{account_scopper}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sebastien Grosjean"]
-  s.date = %q{2009-11-11}
+  s.date = %q{2009-11-17}
   s.description = %q{Account Scopper: Automatically scope your ActiveRecord's model by account. Ideal for multi-account applications.}
   s.email = %q{public@zencocoon.com}
   s.extra_rdoc_files = [
@@ -62,11 +62,14 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activerecord>, [">= 2.3.4"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
+      s.add_dependency(%q<activerecord>, [">= 2.3.4"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
     end
   else
+    s.add_dependency(%q<activerecord>, [">= 2.3.4"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
   end
 end
