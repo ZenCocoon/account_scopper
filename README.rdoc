@@ -4,6 +4,21 @@ Account Scopper aims to make conversion from a single account to multi-accounts 
 
 Simply set your current_account before each request and the scoping will be done on it's own.
 
+== Install
+
+If new to gemcutter first run
+
+  sudo gem install gemcutter
+  sudo gemcutter tumble
+
+Then run
+
+  sudo gem install account_scopper
+  
+If using rails, in your `config/environment.rb`
+
+  config.gem 'account_scopper'
+
 == Usage
 
 To convert your application, you will need to make few changes :
