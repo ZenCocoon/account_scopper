@@ -2,11 +2,14 @@ seb:
   id: 1
   account_id: 1
   name: Seb
+  login: seb
 marc:
   id: 2
   account_id: 1
   name: Marc
+  login: marc
 stephane:
   id: 3
   account_id: 2
   name: Stephane
+  login: stephane

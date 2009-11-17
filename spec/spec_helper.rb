@@ -9,6 +9,8 @@ require File.dirname(__FILE__) + '/lib/load_schema'
 require File.dirname(__FILE__) + '/lib/load_models'
 require File.dirname(__FILE__) + '/lib/load_fixtures'
 
+require File.dirname(__FILE__) + "/../init"
+
 Spec::Runner.configure do |config|  
   load_models
   

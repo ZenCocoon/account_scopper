@@ -66,4 +66,19 @@ describe "AccountScopper" do
     user = User.find_by_name('Stephane')
     user.destroy.should_not be_nil
   end
+  
+  it "should validates_uniqueness_of within account" do
+    u = User.create(:name => "Seb")
+    u.errors.on(:name).should == "has already been taken"
+  end
+  
+  it "should not validates_uniqueness_of without scoping the current account" do
+    u = User.create(:name => "Stephane")
+    u.valid?.should be_true
+  end
+  
+  it "should validates_global_uniqueness_of wihtout scoping the current account" do
+    u = User.create(:login => "stephane")
+    u.errors.on(:login).should == "has already been taken"
+  end
 end

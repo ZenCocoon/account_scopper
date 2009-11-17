@@ -10,7 +10,7 @@ To convert your application, you will need to make few changes :
 
 1. Create an Account model and Accounts table
 2. Add account_id to your existing models (except Account of course)
-3. Make relationship between Account and other models
+3. Define relationship between Account and other models
 4. Add the class variable "current_account" to the model Account
 5. Initialize Account.current_account before every request (eg: app/controllers/application.rb)
 
@@ -18,31 +18,31 @@ eg:
 
 # app/model/account.rb
 
-class Account < ActiveRecord::Base
-  cattr_accessor :current_account
+  class Account < ActiveRecord::Base
+    cattr_accessor :current_account
   
-  has_many :users
-end
+    has_many :users
+  end
 
 # app/model/user.rb
 
-class User < ActiveRecord::Base  
-  belongs_to :account
-end
+  class User < ActiveRecord::Base  
+    belongs_to :account
+  end
 
 # app/controllers/application.rb
 
-class ApplicationController < ActionController::Base
-  before_filter :set_current_account
-  # ...
+  class ApplicationController < ActionController::Base
+    before_filter :set_current_account
+    # ...
 
-  private
-    # Don't forget that @current_account should be properly setup to be an Account object
-    # for this purpose you can use the plugin AccountLocation from David Heinemeier Hansson
-    def set_current_account
-      Account.current_account = @current_account
-    end
-end
+    private
+      # Don't forget that @current_account should be properly setup to be an Account object
+      # for this purpose you can use the plugin AccountLocation from David Heinemeier Hansson
+      def set_current_account
+        Account.current_account = @current_account
+      end
+  end
 
 == What it does
 
@@ -50,6 +50,16 @@ The plugin overwrite few methods from ActiveRecord::Base
 
 To have a better understanding of what it does, the best way is still to look
 at the code itself and the tests.
+
+== Helpers
+
+As account_scopper scopes all database requests, `validates_uniqueness_of` will also scope to the current account.
+
+In some cases, you may like to make sure that somethings remain unique to your whole system.
+
+(eg: the user login or email if logging in from a common page for all accounts)
+
+For this purpose, you can use `validates_global_uniqueness_of`. This validations will make sure your attribute is unique over all accounts.
 
 == Warning
 
