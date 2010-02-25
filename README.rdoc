@@ -4,6 +4,10 @@ Account Scopper aims to make conversion from a single account to multi-accounts 
 
 Simply set your current_account before each request and the scoping will be done on it's own.
 
+== Account Scopper is NOT working with Rails 3.x
+
+Due the the heavy lifting that Rails 3 had, account_scopper is NOT working with Rails 3.x and later
+
 == Install
 
 If new to gemcutter first run
